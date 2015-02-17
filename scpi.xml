@@ -22,4 +22,13 @@
       <classpath refid="instrument_classpath"/>
     </java>
   </target>
+
+  <target name="deploy" depends="compile, instrument">
+    <copy todir="C:\apache-tomcat-8.0.15\webapps\SCPI">
+      <fileset dir="src/web/view"/>
+    </copy>
+    <copy todir="C:\apache-tomcat-8.0.15\webapps\SCPI\WEB-INF">
+      <fileset dir="out/production/SCPI"/>
+    </copy>
+  </target>
 </project>
