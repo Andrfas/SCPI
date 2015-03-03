@@ -17,11 +17,8 @@ public class LogoutServlet extends HttpServlet {
         if(session != null){
             session.invalidate();
         }
-
-
-
-        resp.sendRedirect("LoginSuccess.jsp");
-//        req.getRequestDispatcher("/index.html").forward(req, resp);
+        
+        resp.sendRedirect("/SCPI");
     }
 
     @Override
