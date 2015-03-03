@@ -22,9 +22,15 @@ public class LoginData implements Serializable {
     public LoginData() {
     }
 
+    public LoginData(String login, String pass, Employee empl) {
+        this.employee = empl;
+        this.login = login;
+        this.password = pass;
+    }
+
 
     @GenericGenerator(name = "generator", strategy = "foreign",
-            parameters = @Parameter(name = "property", value = "stock"))
+            parameters = @Parameter(name = "property", value = "employee"))
     @Id
     @GeneratedValue(generator = "generator")
     @Column(name = "employee_id", nullable = false)

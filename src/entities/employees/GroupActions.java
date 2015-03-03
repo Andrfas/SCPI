@@ -18,6 +18,8 @@ public class GroupActions {
     public GroupActions() {
     }
 
+
+
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)

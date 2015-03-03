@@ -2,6 +2,7 @@ package entities.employees;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,15 +14,18 @@ public class EmployeeGroup implements Serializable {
     private Integer id;
     private String name;
     private Set<Employee> employees;
+    private List<GroupActions> actions;
 
-    public EmployeeGroup(){}
+    public EmployeeGroup() {
+    }
+
     public EmployeeGroup(String name) {
         this.name = name;
     }
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -46,5 +50,15 @@ public class EmployeeGroup implements Serializable {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    @ManyToMany(mappedBy = "groups",
+            targetEntity = GroupActions.class)
+    public List<GroupActions> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<GroupActions> actions) {
+        this.actions = actions;
     }
 }

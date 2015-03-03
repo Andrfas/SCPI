@@ -27,7 +27,7 @@ public class Employee implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -64,7 +64,7 @@ public class Employee implements Serializable {
         this.lastName = lastName;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
     public LoginData getLoginData() {
         return loginData;
     }
