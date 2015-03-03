@@ -16,16 +16,18 @@ public class LogInServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String login = (String) req.getAttribute("login");
-        String password = (String) req.getAttribute("password");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+
 
         EmployeeDAO emplDAO = new EmployeeDAO();
-        Employee employee = emplDAO.getEmployee(login, password);
+        Employee employee = emplDAO.getEmployeeByLoginAndPass(login, password);
         if (employee != null) {
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
             session.setAttribute("employee", employee);
             session.setMaxInactiveInterval(30*60);
+
             resp.sendRedirect("/SCPI/actions");
         } else {
             resp.sendRedirect("/SCPI/login");
