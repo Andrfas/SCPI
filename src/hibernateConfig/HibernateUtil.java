@@ -16,6 +16,8 @@ public class HibernateUtil {
             sessionFactory = new AnnotationConfiguration()
                     .addAnnotatedClass(entities.employees.Employee.class)
                     .addAnnotatedClass(entities.employees.EmployeeGroup.class)
+                    .addAnnotatedClass(entities.employees.LoginData.class)
+                    .addAnnotatedClass(entities.employees.GroupActions.class)
                     .configure().buildSessionFactory();
         } catch (Throwable ex) {
             // Log exception!
