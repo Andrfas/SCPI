@@ -24,7 +24,6 @@ public class LogInServlet extends HttpServlet {
         Employee employee = emplDAO.getEmployeeByLoginAndPass(login, password);
         if (employee != null) {
             HttpSession session = req.getSession();
-            session.setAttribute("login", login);
             session.setAttribute("employee", employee);
             session.setMaxInactiveInterval(30*60);
 
@@ -33,14 +32,6 @@ public class LogInServlet extends HttpServlet {
             resp.sendRedirect("/SCPI/login");
         }
 
-
-
-//        Cookie userName = new Cookie("user", "Igor");
-//        userName.setMaxAge(30*60);
-//        resp.addCookie(userName);
-
-//        req.setAttribute("sessionId", session.getLastAccessedTime());
-//        req.getRequestDispatcher("/index.html").forward(req, resp);
     }
 
     @Override
