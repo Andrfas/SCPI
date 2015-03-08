@@ -1,6 +1,7 @@
 package entities.employees;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "group_actions")
-public class GroupActions {
+public class GroupActions implements Serializable {
 
     private Integer id;
     private String name;
@@ -18,11 +19,21 @@ public class GroupActions {
     public GroupActions() {
     }
 
+    public GroupActions(String name, String className) {
+        this.name = name;
+        this.className = className;
+    }
+
+    public GroupActions(String name, String className, List<EmployeeGroup> groups) {
+        this.name = name;
+        this.className = className;
+        this.groups = groups;
+    }
 
 
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     public Integer getId() {
         return id;
     }
@@ -49,7 +60,9 @@ public class GroupActions {
         this.className = className;
     }
 
-    @ManyToMany(targetEntity = EmployeeGroup.class)
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            targetEntity = EmployeeGroup.class)
     @JoinTable(name = "empl_groups_actions",
             joinColumns = @JoinColumn(name = "action_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id"))

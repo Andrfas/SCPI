@@ -53,7 +53,8 @@ public class EmployeeGroup implements Serializable {
     }
 
     @ManyToMany(mappedBy = "groups",
-            targetEntity = GroupActions.class)
+            targetEntity = GroupActions.class,
+            fetch = FetchType.LAZY)
     public List<GroupActions> getActions() {
         return actions;
     }
