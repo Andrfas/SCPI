@@ -51,6 +51,6 @@ public class actionListPageServlet extends HttpServlet {
 
         req.setAttribute("actionsList", actionsList);
 
-                req.getRequestDispatcher("/pages/actions/authorisedUser.jsp").forward(req, resp);
+                req.getRequestDispatcher("/pages/actions/actionListPage.jsp").forward(req, resp);
     }
 }
