@@ -1,22 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-         pageEncoding="US-ASCII"%><!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8" %><!DOCTYPE html>
 <html>
-<head lang="en">
+<head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
-List of actions
-<% String s = null;%>
+Введите информацию для поиска:
 <br>
-<form action="/actions/userSearch" method="post">
+<form action="/SCPI/actions/userSearch" method="post">
     Id:
     <br><input type="text" name="id">
-    ???:
+    <br><br>
+    Имя:
     <br><input type="text" name="firstName">
-    ???????:
+    <br><br>
+    Фамилия:
     <br><input type="text" name="lastName">
-    <input type="submit" value="?????">
+    <br><br>
+    <input type="submit" value="Искать">
 </form>
 </body>
 </html>
