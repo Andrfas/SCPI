@@ -11,7 +11,7 @@
 List of actions
 
 <c:forEach items="${actionsList}" var="action">
-    <br><a href="<c:out value="${action[1]}"/>"><c:out value="${action[0]}"/></a>
+    <br><a href="<c:out value="${action.getClassName()}"/>"><c:out value="${action.getName()}"/></a>
 </c:forEach>
 
 <br>
