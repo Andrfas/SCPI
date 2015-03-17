@@ -8,10 +8,9 @@
     <title></title>
 </head>
 <body>
-<%=((List<Employee>) request.getAttribute("employeeList")).get(0).getFirstName()%>
 <c:forEach items="${employeeList}" var="employee">
-    <%--<br><a href="<c:out value="${employee}"/>"><c:out value=" "/></a>--%>
-    ${employee.firstName}:${employee.lastName}<br>
+    <br><a href="/SCPI/employee?id=<c:out value="${employee.id}"/>"><c:out value="${employee.firstName}"/> <c:out
+        value="${employee.lastName}"/></a>
 </c:forEach>
 </body>
 </html>
