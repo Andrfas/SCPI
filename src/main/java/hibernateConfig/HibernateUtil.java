@@ -18,6 +18,17 @@ public class HibernateUtil {
                     .addAnnotatedClass(entities.employees.EmployeeGroup.class)
                     .addAnnotatedClass(entities.employees.LoginData.class)
                     .addAnnotatedClass(entities.employees.GroupActions.class)
+
+                    .addAnnotatedClass(entities.artifacts.Action.class)
+                    .addAnnotatedClass(entities.artifacts.Artifact.class)
+                    .addAnnotatedClass(entities.artifacts.ArtifActionType.class)
+                    .addAnnotatedClass(entities.artifacts.ArtifactType.class)
+                    .addAnnotatedClass(entities.artifacts.Field.class)
+                    .addAnnotatedClass(entities.artifacts.FieldValue.class)
+                    .addAnnotatedClass(entities.artifacts.Group.class)
+
+                    .addAnnotatedClass(entities.dossiers.Dossier.class)
+
                     .configure().buildSessionFactory();
         } catch (Throwable ex) {
             // Log exception!

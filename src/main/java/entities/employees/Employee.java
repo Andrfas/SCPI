@@ -1,8 +1,11 @@
 package entities.employees;
 
 
+import entities.artifacts.Action;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Andrey on 22.02.2015.
@@ -16,6 +19,7 @@ public class Employee implements Serializable {
     private String firstName;
     private String lastName;
     private LoginData loginData;
+    private List<Action> actions;
 
     public Employee(){}
 
@@ -71,5 +75,14 @@ public class Employee implements Serializable {
 
     public void setLoginData(LoginData loginData) {
         this.loginData = loginData;
+    }
+
+    @OneToMany(mappedBy="employee", fetch = FetchType.LAZY)
+    public List<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
     }
 }

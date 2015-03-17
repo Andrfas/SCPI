@@ -2,6 +2,7 @@ package entities.employees;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,8 +14,8 @@ import java.util.Set;
 public class EmployeeGroup implements Serializable {
     private Integer id;
     private String name;
-    private Set<Employee> employees;
-    private List<GroupActions> actions;
+    private List<Employee> employees;
+    private Set<GroupActions> actions =  new HashSet<GroupActions>();;
 
     public EmployeeGroup() {
     }
@@ -44,22 +45,21 @@ public class EmployeeGroup implements Serializable {
     }
 
     @OneToMany(fetch = FetchType.LAZY)
-    public Set<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return this.employees;
     }
 
-    public void setEmployees(Set<Employee> employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 
     @ManyToMany(mappedBy = "groups",
-            targetEntity = GroupActions.class,
             fetch = FetchType.LAZY)
-    public List<GroupActions> getActions() {
+    public Set<GroupActions> getActions() {
         return actions;
     }
 
-    public void setActions(List<GroupActions> actions) {
+    public void setActions(Set<GroupActions> actions) {
         this.actions = actions;
     }
 }

@@ -2,7 +2,9 @@ package entities.employees;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Andrey on 03.03.2015.
@@ -14,21 +16,11 @@ public class GroupActions implements Serializable {
     private Integer id;
     private String name;
     private String className;
-    private List<EmployeeGroup> groups;
+    private Set<EmployeeGroup> groups =  new HashSet<EmployeeGroup>();;
 
     public GroupActions() {
     }
 
-    public GroupActions(String name, String className) {
-        this.name = name;
-        this.className = className;
-    }
-
-    public GroupActions(String name, String className, List<EmployeeGroup> groups) {
-        this.name = name;
-        this.className = className;
-        this.groups = groups;
-    }
 
 
     @Id
@@ -62,15 +54,15 @@ public class GroupActions implements Serializable {
 
     @ManyToMany(
             fetch = FetchType.LAZY,
-            targetEntity = EmployeeGroup.class)
+            cascade = {CascadeType.ALL})
     @JoinTable(name = "empl_groups_actions",
             joinColumns = @JoinColumn(name = "action_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id"))
-    public List<EmployeeGroup> getGroups() {
+    public Set<EmployeeGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(List<EmployeeGroup> groups) {
+    public void setGroups(Set<EmployeeGroup> groups) {
         this.groups = groups;
     }
 }
