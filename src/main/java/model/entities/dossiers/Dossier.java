@@ -1,6 +1,6 @@
-package entities.dossiers;
+package model.entities.dossiers;
 
-import entities.artifacts.Action;
+import model.entities.artifacts.Action;
 
 import javax.persistence.*;
 import java.util.List;

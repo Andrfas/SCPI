@@ -1,7 +1,7 @@
-package entities.artifacts;
+package model.entities.artifacts;
 
-import entities.dossiers.Dossier;
-import entities.employees.Employee;
+import model.entities.dossiers.Dossier;
+import model.entities.employees.Employee;
 
 import javax.persistence.*;
 import java.util.Date;

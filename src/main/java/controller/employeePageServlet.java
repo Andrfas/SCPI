@@ -1,8 +1,9 @@
-package employeesModule;
+package controller;
 
-import artifacts.ActionsDao;
-import entities.artifacts.Action;
-import entities.employees.Employee;
+import model.dao.ActionsDao;
+import model.dao.EmployeeDAO;
+import model.entities.artifacts.Action;
+import model.entities.employees.Employee;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

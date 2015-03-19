@@ -1,4 +1,4 @@
-package identificationModule;
+package controller;
 
 import auxiliaryClasses.Pages;
 

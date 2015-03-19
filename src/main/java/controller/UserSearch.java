@@ -1,8 +1,7 @@
-package actions;
+package controller;
 
-import employeesModule.EmployeeDAO;
-import entities.employees.Employee;
-import org.springframework.transaction.annotation.Transactional;
+import model.dao.EmployeeDAO;
+import model.entities.employees.Employee;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

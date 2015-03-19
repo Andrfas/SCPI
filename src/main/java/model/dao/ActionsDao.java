@@ -1,8 +1,8 @@
-package artifacts;
+package model.dao;
 
-import entities.artifacts.Action;
-import entities.employees.Employee;
-import hibernateConfig.HibernateUtil;
+import model.entities.artifacts.Action;
+import model.entities.employees.Employee;
+import configurations.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

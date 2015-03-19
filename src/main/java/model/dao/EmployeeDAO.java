@@ -1,10 +1,9 @@
-package employeesModule;
+package model.dao;
 
-import entities.employees.Employee;
-import entities.employees.LoginData;
-import hibernateConfig.HibernateUtil;
+import model.entities.employees.Employee;
+import model.entities.employees.LoginData;
+import configurations.HibernateUtil;
 import org.hibernate.*;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 

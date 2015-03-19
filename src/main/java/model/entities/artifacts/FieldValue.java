@@ -1,4 +1,4 @@
-package entities.artifacts;
+package model.entities.artifacts;
 
 import javax.persistence.*;
 
