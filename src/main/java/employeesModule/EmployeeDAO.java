@@ -16,6 +16,11 @@ import java.util.List;
 public class EmployeeDAO {
     private static SessionFactory factory = HibernateUtil.getSessionFactory();
 
+    /**
+     * Returns an employee by specified id.
+     * @param id of employee
+     * @return Employee
+     */
     public Employee getEmployee(String id) {
         Session s = factory.getCurrentSession();
         s.getTransaction().begin();
@@ -71,6 +76,12 @@ public class EmployeeDAO {
     }
 
 
+    /**
+     * Returns an employee by specified login and password.
+     * @param login
+     * @param password
+     * @return
+     */
     public Employee getEmployeeByLoginAndPass(String login, String password) {
 
         Employee employee = null;
